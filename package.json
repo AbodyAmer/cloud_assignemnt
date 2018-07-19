@@ -1,13 +1,17 @@
 {
-    "name": "app-service-hello-world",
-    "description": "Simple Hello World Node.js sample for Azure App Service",
+    "name": "Cloud",
+    "description": "Cloud Assignment in azure",
     "version": "0.0.1",
     "private": true,
     "license": "MIT",
-    "author": "Microsoft",
+    "author": "Abody",
     "engines": {
         "node": ">=6.9.1"
     },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/AbodyAmer/cloud_assignemnt.git"
+      },
     "scripts": {
         "start": "node index.js",
         "startdevmode": "cd view && webpack-dev-server --open --config webpack.dev.js",
