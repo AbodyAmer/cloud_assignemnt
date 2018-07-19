@@ -15,7 +15,7 @@ class App extends Component{
         e.preventDefault()
         fetch('/api/getMessage')
         .then(res => console.log(res) || res.json())
-        .then(data => this.setState({message: 'welcome ' + data.name}))
+        .then(data => this.setState({message: 'Rebuild ' + data.name}))
         .catch(e => console.log(e))
     }
 
