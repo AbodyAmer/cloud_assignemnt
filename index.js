@@ -7,8 +7,14 @@
 
 // });
 var express = require('express')
+var path = require('path')
 var app = express()
-app.use(express.static( __dirname, 'view/build'))
+// app.use(express.static( __dirname, 'view/build'))
+
+app.get('/' , (req, res) => {
+   
+    res.sendFile(path.join(__dirname , 'view/build/index.html'))
+})
 app.get('/api/getMessage' , (req, res) => {
    
     res.json({"name": "abody"})
