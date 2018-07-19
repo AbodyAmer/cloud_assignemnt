@@ -3,5 +3,5 @@ import ReactDOM from 'react-dom'
 import AllRoutes from './components/routes'
 
 ReactDOM.render(
-<AllRoutes /> , document.querySelector('#app')
+<h1>What is wrong</h1> , document.querySelector('#app')
 )
