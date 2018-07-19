@@ -9,6 +9,27 @@
         "node": ">=6.9.1"
     },
     "scripts": {
-        "start": "node index.js"
+        "start": "node index.js", 
+        "startdevmode": "cd view && webpack-dev-server --open --config webpack.dev.js", 
+        "build": "cd view && webpack --config webpack.prod.js"
+    },
+    "dependencies": {
+        "express": "^4.16.3",
+        "react": "^16.4.1",
+        "react-dom": "^16.4.1"
+    },
+    "devDependencies": {
+        "babel-core": "^6.26.3",
+        "babel-loader": "^7.1.5",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-react": "^6.24.1",
+        "clean-webpack-plugin": "^0.1.19",
+        "css-loader": "^1.0.0",
+        "html-webpack-plugin": "^3.2.0",
+        "style-loader": "^0.21.0",
+        "webpack": "^4.16.1",
+        "webpack-cli": "^3.1.0",
+        "webpack-dev-server": "^3.1.4",
+        "webpack-merge": "^4.1.3"
     }
 }
