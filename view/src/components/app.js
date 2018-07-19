@@ -5,7 +5,7 @@ class App extends Component{
     constructor(props){
         super(props)
         this.state = {
-            message: 'Welcome'
+            message: 'Rebuild'
         }
         this.click = this.click.bind(this)
     }
