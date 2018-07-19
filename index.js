@@ -21,6 +21,12 @@ app.get('/api/getMessage' , (req, res) => {
     res.json({"name": "abody"})
 })
 
+
+app.get('/api/getAnotherMessage' , (req, res) => {
+   
+    res.json({"name": "another route"})
+})
+
 var port = process.env.PORT || 1337;
 app.listen(port);
 
