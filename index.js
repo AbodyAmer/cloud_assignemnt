@@ -1,16 +1,9 @@
-// var http = require('http');
-
-// var server = http.createServer(function(request, response) {
-
-//     response.writeHead(200, {"Content-Type": "text/plain"});
-//     response.end("Hello Azure Cloud!");
-
-// });
 var express = require('express')
 var path = require('path')
+var bodyParser = require('body-parser')
 var app = express()
- //app.use(express.static( __dirname, 'build'))
 
+app.use(bodyParser.json())
 app.get('/' , (req, res) => {
    
     

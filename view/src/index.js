@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import AllRoutes from './components/routes'
+import App from './components/app'
 
 ReactDOM.render(
-<AllRoutes /> , document.querySelector('#app')
+<App /> , document.querySelector('#app')
 )
