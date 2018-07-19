@@ -25,7 +25,7 @@ class Another extends Component{
           
         return(
             <Fragment>
-            <h1>{this.state.message}</h1>
+            <h1>Another Route {this.state.message}</h1>
             <button 
             onClick={this.click}
             >
