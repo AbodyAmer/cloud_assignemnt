@@ -18,7 +18,7 @@ app.get('/' , (req, res) => {
 })
 app.get('/api/getMessage' , (req, res) => {
    
-    res.json({"name": "abody"})
+    res.json({"name": "Messi"})
 })
 
 
