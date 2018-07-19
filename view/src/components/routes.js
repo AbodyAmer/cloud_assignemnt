@@ -13,9 +13,11 @@ class AllRoutes extends Component{
           <Router>
               <Switch>
                   <Route exact path='/' component={App} />
-                  <Route exact path='/' component={Another} />
+                  <Route exact path='/another' component={Another} />
               </Switch>
           </Router>
         )
     }
 }
+
+export default AllRoutes
