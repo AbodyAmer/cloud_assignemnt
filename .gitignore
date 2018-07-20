@@ -38,4 +38,4 @@ jspm_packages
 
 ./view/build
 
-.storageTier/config
+model/config
