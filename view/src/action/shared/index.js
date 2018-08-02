@@ -11,7 +11,7 @@ export const signIn = (user) => {
 
 export const logOut = () => {
     const action = {
-        type: logOut, 
+        type: loginout, 
     }
     return action 
 }

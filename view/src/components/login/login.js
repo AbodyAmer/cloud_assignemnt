@@ -1,10 +1,12 @@
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import {connect} from 'react-redux'
 import {signIn} from '../../action/shared'
 import CustomerHome from '../customer/customerHome'
 import AdminHome from '../admin/adminHome'
+import ErrorMessage from './message'
+import RegisterMessage from './regsitermessage'
 
 class Login extends Component{
 
@@ -15,34 +17,75 @@ class Login extends Component{
             email: '', 
             password: '', 
             message: '',
-            error: ''
+            error: '',
+            disabled: false, 
+            showMessage: false,
+            afterClose: false
         }
+        this.close = this.close.bind(this)
+        this.closeR = this.closeR.bind(this)
+        
     }
-    
-    
+
+    componentDidMount(){
+        if(this.props.location.state !== undefined)
+        {
+            if(!this.state.showMessage && !this.state.afterClose)
+            this.setState({showMessage:true})
+            
+        }
+       
+    }
+
+   
 
     handleLogin(e){
         e.preventDefault()
+        this.setState({disabled:true})
         axios.post('/api/login', {
             email: this.state.email, 
             pass: this.state.password
         })
         .then(res => {
+            this.setState({error:false, disabled: false})
             this.props.signIn(res.data)
         })
-        .catch(e => console.log(e))
+        .catch(e => {
+            this.setState({message: 'Email or password is incorrect' , error: true, disabled:false})
+        })
     }
+
     
 
+    closeR(){
+        this.setState({showMessage:false, afterClose:true})
+    }
+    close(){
+        this.setState({error: false})
+    }
 
-    render(){
-        console.log(this.props)
-        
+    render(){        
+       
         return(
             this.props.reduxState.User.role === 'customer'?
             <CustomerHome />:
             this.props.reduxState.User.role === 'staff'?
             <AdminHome />:
+            <Fragment>
+                {this.state.error? 
+                <ErrorMessage 
+                close={this.close}
+                />:
+           
+               this.state.showMessage?
+              <RegisterMessage 
+              closeR={this.closeR}
+              strong={this.props.location.state.strong}
+              message={this.props.location.state.message}
+              />:
+              console.log()
+            
+            }
           <form>
               <div className="form-group">
                 <label htmlFor="exampleInputEmail1">Email address</label>
@@ -59,11 +102,14 @@ class Login extends Component{
               </div>
               <div className='form-group'>
             <button type="submit" className="btn btn-primary"
+            disabled={this.state.disabled}
             onClick={e => this.handleLogin(e)}
             >Submit</button>
             </div>
-             <a href='#'>Register as a new customer</a>
+             <Link to='/register'>Register as a new customer</Link>
           </form>
+          
+          </Fragment>
         )
     }
 }
