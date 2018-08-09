@@ -32,6 +32,26 @@ const Customer = (customerName ='' , customerEmail = '' , customerPassword) => {
              return res
          })
         ), 
+        requestShipment: async (shipment_date, shiptment_cost, customer_email) => {
+         const pool =  new sql.ConnectionPool(config)
+         try{
+          await pool.connect()
+          let res = await pool.request()
+          .input('shipment_date' , sql.Date, shipment_date)
+          .input('shiptment_cost' , sql.Decimal, shiptment_cost)
+          .input('customer_email' , sql.VarChar, customer_email)
+          .query('INSERT INTO shipments(shipment_date, shiptment_cost, customer_email, shiptment_status)'+
+        'VALUES(@shipment_date,@shiptment_cost, @customer_email, \'PENDING\' )')
+        return res   
+    }
+         catch(e){
+          return e
+         }
+         finally{
+             pool.close()
+         }
+        }, 
+
 
        
 

@@ -9,7 +9,7 @@ import Header from './header/header'
 import AdminHome from './admin/adminHome'
 import CustomerHome from './customer/customerHome'
 import Register from './customer/register/register'
-
+import ShipmentRequest  from './customer/request'
 class App extends Component{
     render(){
         return(     
@@ -23,6 +23,7 @@ class App extends Component{
                       <Route exact path='/adminhome' component={AdminHome} />
                       <Route exact path='/customerhome' component={CustomerHome} />
                       <Route exact path='/register' component={Register} />
+                      <Route exact path='/request' component={ShipmentRequest} />
                       <Route render={() => 
                         <h1>404 Page Not Found</h1>  
                     } />

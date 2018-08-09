@@ -5,7 +5,7 @@ import React from 'react'
 <strong>{props.strong}</strong> {props.message}
 <button 
 onClick={e => props.closeR()}
-type="button" className="close" data-dismiss="alert" aria-label="Close">
+type="button" className="close"  aria-label="Close">
   <span aria-hidden="true">&times;</span>
 </button>
 </div>

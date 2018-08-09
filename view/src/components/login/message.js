@@ -5,7 +5,7 @@ import React from 'react'
 <strong>User Not Found!</strong> Email or password is incorrect.
 <button 
 onClick={e => props.close()}
-type="button" className="close" data-dismiss="alert" aria-label="Close">
+type="button" className="close"  aria-label="Close">
   <span aria-hidden="true">&times;</span>
 </button>
 </div>

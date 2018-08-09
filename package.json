@@ -25,6 +25,7 @@
         "express": "^4.16.3",
         "express-session": "^1.15.6",
         "lodash": "^4.17.10",
+        "moment": "^2.22.2",
         "mssql": "^4.1.0",
         "react": "^16.4.1",
         "react-dom": "^16.4.1",

@@ -1,13 +1,13 @@
 import React from 'react'
- const ErrorMessage = (props) => 
+ const PrimaryMessage = (props) => 
  
-<div className="alert alert-danger " role="alert">
+<div className="alert alert-primary " role="alert">
 {props.message}
 <button 
-onClick={e => props.close()}
+onClick={e => props.closee()}
 type="button" className="close"  aria-label="Close">
   <span aria-hidden="true">&times;</span>
 </button>
 </div>
 
-export default ErrorMessage
+export default PrimaryMessage
