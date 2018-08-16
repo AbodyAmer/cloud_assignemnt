@@ -21,7 +21,7 @@ module.exports = app => {
                
                const shipmentArr = await Promise.all(shipments.recordset.map(async sh => {
                 
-                const obj =  _.pick(sh, ['shipment_id' , 'shipment_date' , 'shiptment_status', 'shiptment_cost' , 'customer_email' , 'staff_id'])
+                const obj =  _.pick(sh, ['shipment_id' , 'shipment_date' , 'shiptment_status', 'shiptment_cost' , 'customer_email' , 'staff_id' , 'shippingdate'])
                
                 let ship = await shipmentPort.getSHipmentPort(sh.shipment_id)
                 let aa = await Promise.all(ship.recordset.map(async port => {
@@ -46,7 +46,7 @@ module.exports = app => {
           return obj
                }    
         ))
-             console.log('shipmentArr ' ,shipmentArr)
+             
              
              
             res.json(shipmentArr)

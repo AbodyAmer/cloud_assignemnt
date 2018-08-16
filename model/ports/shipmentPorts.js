@@ -53,6 +53,22 @@ const ShipmentPort = () =>{
             finally{
                 pool.close()
             }
+        }, 
+        getShipmentPortByPortId: async (id) => {
+            const pool = new sql.ConnectionPool(config)
+            try{
+               await pool.connect()
+               const res = await pool.request()
+               .input('id' , sql.VarChar, id)
+               .query('SELECT * FROM portsShipments WHERE port_id = @id')
+               return res
+            }
+            catch(e){
+               return e
+            }
+            finally{
+                pool.close()
+            }
         }
     }
 }

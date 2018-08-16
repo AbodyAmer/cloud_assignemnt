@@ -16,7 +16,8 @@ class ShipmentRequest extends Component{
         weight: '',
         error: false, 
         message: '', 
-        successMessage: false
+        successMessage: false, 
+        disabled: false
 
      }
      this.sendRequest = this.sendRequest.bind(this)
@@ -50,14 +51,15 @@ class ShipmentRequest extends Component{
             this.setState({error: true, message: 'Enter shipment weight'})
         } 
         else {
+            this.setState({disabled: true})
             axios.post('/api/getRequest' , {
                 cost: this.state.cost, 
                 email: this.props.reduxState.User.email, 
                 arrivalPort: this.state.arrival, 
                 departurePort: this.state.departure
             })
-            .then(res => this.setState({successMessage: true, message: 'Request completed successfuly'}))
-            .catch(e => console.log(e))
+            .then(res => this.setState({successMessage: true, message: 'Request completed successfuly', disabled: false}))
+            .catch(e => this.setState({disabled: true}))
         }
         
     }
@@ -145,7 +147,9 @@ class ShipmentRequest extends Component{
                 <input  className='form-control' readOnly value={this.state.cost + ' RM'}/>
               </div>
               </div>
-              <button className='btn btn-primary' style={{marginTop: '10px'}}
+              <button 
+              disabled={this.state.disabled}
+              className='btn btn-primary' style={{marginTop: '10px'}}
               onClick={e => this.sendRequest(e)}
               >Submit Request</button>
             </form>

@@ -18,7 +18,7 @@ module.exports = app => {
         const latestSHipment = await shipment.getLatestShipment()
         const shipmentPort = ShipmentPort()
         const arrive = await shipmentPort.addnewShipmentPort('arrival', latestSHipment.recordset[0].shipment_id, arrivalPort)
-        const depart = await shipmentPort.addnewShipmentPort('departure', latestSHipment.recordset[0].shipment_id, arrivalPort)
+        const depart = await shipmentPort.addnewShipmentPort('departure', latestSHipment.recordset[0].shipment_id, departurePort)
         res.send('OK')
     }
     catch(e){

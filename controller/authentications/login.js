@@ -21,6 +21,7 @@ module.exports = (app) => {
                 user.name = adminUser.recordset[0].staff_name
                 user.email = adminUser.recordset[0].staff_email
                 user.port = adminUser.recordset[0].port_id
+                user.id = adminUser.recordset[0].staff_id
                 user.role = 'staff'
                 req.session.user = user
                 res.json(user)

@@ -5,4 +5,5 @@ module.exports = app => {
     require('./customer/home')(app)
     require('./customer/request')(app)
     require('./staff/home')(app)
+    require('./staff/update')(app)
 }

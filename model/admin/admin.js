@@ -21,7 +21,23 @@ const Admin = (staffName = ''  , staffEmail = '', staffPassword = '', staffPort 
             sql.close()
             return res
         })   
-       )
+       ),
+       getAdminName: async id => {
+          const pool = new sql.ConnectionPool(config)
+          try{
+              await pool.connect()
+              const res = await pool.request()
+              .input('id', sql.Int, id)
+              .query('SELETC * FROM staffs WHERE staff_id = @id')
+            return res
+          }
+          catch(e){
+              return e
+          }
+          finally{
+              pool.close()
+          }
+       }
     
     }
 }
