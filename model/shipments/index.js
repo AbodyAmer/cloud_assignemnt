@@ -2,6 +2,8 @@ const config = require('../config/dataConfiguration')
 const sql = require('mssql')
 const moment = require('moment')
 
+
+
 const Shipment = () => {
     return{
         getByCustomerEmail : (email) => sql.connect(config).then(pool => 
