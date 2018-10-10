@@ -48,6 +48,7 @@ const ShipmentPort = () =>{
               
             }
             catch(e){
+                console.log(e)
             return e
             }
             finally{

@@ -56,7 +56,8 @@ class ShipmentRequest extends Component{
                 cost: this.state.cost, 
                 email: this.props.reduxState.User.email, 
                 arrivalPort: this.state.arrival, 
-                departurePort: this.state.departure
+                departurePort: this.state.departure, 
+                id: this.props.reduxState.User.id
             })
             .then(res => this.setState({successMessage: true, message: 'Request completed successfuly', disabled: false}))
             .catch(e => this.setState({disabled: true}))

@@ -26,7 +26,7 @@ const Shipments = props =>
       moment(ship.shippingdate).format('dddd Do of MMMM YYYY').toString():
       'Pending for approval'
       }</td>
-    <td>{ship.shiptment_cost} RM</td>
+    <td>{ship.shipment_cost} RM</td>
     {ship.shiptment_status === 'PENDING'?
     <td style={{color: 'blue'}}>{ship.shiptment_status}</td>:
     ship.shiptment_status === 'APPROVED'?

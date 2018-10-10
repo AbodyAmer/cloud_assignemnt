@@ -6,8 +6,8 @@ const Shipment = () => {
     return{
         getByCustomerEmail : (email) => sql.connect(config).then(pool => 
         pool.request()
-        .input('email', sql.VarChar, email)
-        .query('SELECT * FROM shipments WHERE customer_email = @email')
+        .input('email', sql.Int, email)
+        .query('SELECT * FROM shipments WHERE customer_id = @email')
         .then(res => {
             sql.close()
             return res

@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react'
 import axios from 'axios'
 import DepartureShipments from './shipments/departure'
 import ArrivalShipments from './shipments/arrival'
+import {connect} from 'react-redux'
 class AdminHome extends Component {
 
     constructor(props){
@@ -13,7 +14,7 @@ class AdminHome extends Component {
         }
     }
     componentDidMount(){
-       axios.get('/api/adminhome')
+       axios.get('/api/adminhome/' + this.props.reduxState.User.port)
        .then(res => {console.log(res)
     this.setState({departures: res.data.departureShipment, didMount: true, arriving: res.data.arrivalShipment})
     })
@@ -54,4 +55,10 @@ class AdminHome extends Component {
         )
     }
 }
-export default AdminHome
+
+function mapStateToProps(state) {
+    return {
+        reduxState: state
+    }
+}
+export default connect(mapStateToProps)(AdminHome)

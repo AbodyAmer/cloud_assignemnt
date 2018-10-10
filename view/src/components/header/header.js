@@ -20,8 +20,8 @@ class Header extends Component{
     render(){
         
         return(
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <i className="fab fa-node" style={{fontSize: '40px', color: 'white'}}></i>
+            <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+            <h4>CMS</h4>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>

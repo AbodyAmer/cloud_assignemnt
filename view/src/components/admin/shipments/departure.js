@@ -8,7 +8,7 @@ const DepartureShipments = props =>
   <thead>
       <tr>
           <th scope="col">Shipment ID</th>
-          <th scope="col">Customer Email</th>
+          <th scope="col">Customer ID</th>
           <th scope="col">Request Date</th>
           <th scope="col">Cost</th>
           <th scope="col">Status</th>
@@ -23,9 +23,9 @@ const DepartureShipments = props =>
               return(
                   <tr key={dep.shipment_id}>
                      <th scope="row">{dep.shipment_id}</th>
-                     <td>{dep.customer_email}</td>
+                     <td>{dep.customer_id}</td>
                      <td>{moment(dep.shipment_date).format('dddd Do of MMMM YYYY').toString()}</td>
-                     <td>{dep.shiptment_cost} RM</td>
+                     <td>{dep.shipment_cost} RM</td>
                      <td>{dep.shiptment_status}</td>
                      <td>{dep.shiptment_status === 'PENDING' || dep.shiptment_status === 'APPROVED'?
                      'PENDING':
@@ -50,7 +50,7 @@ const DepartureShipments = props =>
                                 shipment:dep
                             }
                         }}>Request Shipping</Link>:
-                        console.log()
+                         <p>Compeleted Successfully</p>
                         }
                      </td>
                   </tr>

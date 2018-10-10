@@ -13,7 +13,7 @@ class CustomerHome extends Component {
     }
 
     componentDidMount(){
-       axios.get(`/api/customerHome/${this.props.reduxState.User.email}`)
+       axios.get(`/api/customerHome/${this.props.reduxState.User.id}`)
        .then(res => this.setState({didMount: true, shipment: res.data}))
        .catch(e => this.setState({didMount: true}))
     }

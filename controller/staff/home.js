@@ -2,16 +2,14 @@ const ShipmentPort = require('../../model/ports/shipmentPorts')
 const Shipment = require('../../model/shipments')
 const Admin = require('../../model/admin/admin')
 module.exports = app => {
-    app.get('/api/adminhome' , async (req, res) => {
-       
-        if(req.session.user === undefined){
-            return res.status(401).send()
-        }
-  
+    app.get('/api/adminhome/:port' , async (req, res) => {
+        
+
+        const {port} = req.params
         const shipmentPorts = ShipmentPort()
 
         try{
-             const portShipments = await shipmentPorts.getShipmentPortByPortId(req.session.user.port)
+             const portShipments = await shipmentPorts.getShipmentPortByPortId(port)
              let arrivalArr = await Promise.all(portShipments.recordset.map(ship => {
                  if(ship.type === 'arrival'){
                      return ship

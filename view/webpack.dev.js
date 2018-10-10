@@ -10,6 +10,6 @@
         inline: true, 
         contentBase: './dist', 
         port: 8080, 
-        proxy: { "/api/**": { target: 'http://localhost:1337', secure: false }  }
+        proxy: { "/api/**": { target: 'http://localhost:3000', secure: false }  }
    }
  });

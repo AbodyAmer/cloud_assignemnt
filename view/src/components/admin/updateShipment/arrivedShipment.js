@@ -39,9 +39,9 @@ class RequestShipping extends Component{
     </div>
   </div>
   <div className="form-group row">
-    <label htmlFor="staticEmail" className="col-sm-2 col-form-label">Customer Email: </label>
+    <label htmlFor="staticEmail" className="col-sm-2 col-form-label">Customer ID: </label>
     <div className="col-sm-10">
-      <input type="text" readOnly className="form-control-plaintext" id="staticEmail" value={this.props.history.location.state.shipment.customer_email}/>
+      <input type="text" readOnly className="form-control-plaintext" id="staticEmail" value={this.props.history.location.state.shipment.customer_id}/>
     </div>
   </div>
   <div className="form-group row">
@@ -53,7 +53,7 @@ class RequestShipping extends Component{
   <div className="form-group row">
     <label htmlFor="staticEmail" className="col-sm-2 col-form-label">Cost: </label>
     <div className="col-sm-10">
-      <input type="text" readOnly className="form-control-plaintext" id="staticEmail" value={this.props.history.location.state.shipment.shiptment_cost +' RM'}/>
+      <input type="text" readOnly className="form-control-plaintext" id="staticEmail" value={this.props.history.location.state.shipment.shipment_cost +' RM'}/>
     </div>
   </div>
   <div className="form-group row">

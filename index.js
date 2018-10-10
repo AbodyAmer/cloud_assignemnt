@@ -2,8 +2,11 @@ var express = require('express')
 var path = require('path')
 var bodyParser = require('body-parser')
 var session = require('express-session')
-var secret = require('./session')
+var {secret} = require('./session')
+var compression = require('compression')
 var app = express()
+
+
 
 const sess = {
     secret,
@@ -16,6 +19,7 @@ if(app.get('env') === 'production'){
     app.set('trust proxy' , 1)
     sess.cookie.secure = true 
 }
+app.use(compression())
 app.use(bodyParser.json())
 
 app.use(session(sess))
@@ -27,7 +31,7 @@ app.get('/' , (req, res) => {
 
 require('./controller')(app)
 
-var port = process.env.PORT || 1337;
+var port = process.env.PORT || 3000;
 app.listen(port);
 
 console.log("Server running at http://localhost:%d", port);

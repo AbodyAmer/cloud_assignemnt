@@ -12,7 +12,7 @@ import Register from './customer/register/register'
 import ShipmentRequest  from './customer/request'
 import UpdateRequest from './admin/updateShipment/updateShipment'
 import RequestShipping from './admin/updateShipment/requestShipping'
-import RequestShipping from './admin/updateShipment/arrivedShipment'
+// import RequestShipping from './admin/updateShipment/arrivedShipment'
 class App extends Component{
     render(){
         return(     
@@ -29,7 +29,7 @@ class App extends Component{
                       <Route exact path='/request' component={ShipmentRequest} />
                       <Route exact path='/updaterequest' component={UpdateRequest} />
                       <Route exact path='/requestShipping' component={RequestShipping} />
-                      <Route exact path='/arriveShipping' component={RequestShipping} />
+                      {/* <Route exact path='/arriveShipping' component={RequestShipping} /> */}
                       <Route render={() => 
                         <h1>404 Page Not Found</h1>  
                     } />

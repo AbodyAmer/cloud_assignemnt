@@ -5,9 +5,7 @@ module.exports = app => {
 
     app.get('/api/customerHome/:email', async (req, res) => {
 
-        if(req.session.user === undefined){
-            return res.status(401).send()
-        }
+        
       
         const shipment = Shipment()
         try{
@@ -21,7 +19,7 @@ module.exports = app => {
                
                const shipmentArr = await Promise.all(shipments.recordset.map(async sh => {
                 
-                const obj =  _.pick(sh, ['shipment_id' , 'shipment_date' , 'shiptment_status', 'shiptment_cost' , 'customer_email' , 'staff_id' , 'shippingdate'])
+                const obj =  _.pick(sh, ['shipment_id' , 'shipment_date' , 'shiptment_status', 'shipment_cost' , 'customer_email' , 'staff_id' , 'shippingdate'])
                
                 let ship = await shipmentPort.getSHipmentPort(sh.shipment_id)
                 let aa = await Promise.all(ship.recordset.map(async port => {
@@ -29,14 +27,14 @@ module.exports = app => {
                      
                     let po = await shipmentPort.getPortById(port.port_id)
                     
-                    obj.arrival = po.recordset[0].port_location
+                    obj.arrival = po.recordset[0].port_id
                   }
                   else {
                    
                         
                         let po = await shipmentPort.getPortById(port.port_id)
                         
-                        obj.departure = po.recordset[0].port_location
+                        obj.departure = po.recordset[0].port_id
                    
                    
                   }

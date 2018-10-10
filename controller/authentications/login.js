@@ -35,6 +35,7 @@ module.exports = (app) => {
                 user.name = customeruser.recordset[0].customer_name
                 user.email = customeruser.recordset[0].customer_email
                 user.role = 'customer'
+                user.id = customeruser.recordset[0].customer_id
                 req.session.user = user
                 res.json(user)
                 }

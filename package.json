@@ -13,7 +13,7 @@
         "url": "git+https://github.com/AbodyAmer/cloud_assignemnt.git"
     },
     "scripts": {
-        "start": "node index.js",
+        "start": "node cluster.js",
         "startdevmode": "cd view && webpack-dev-server --open --config webpack.dev.js",
         "build": "cd view && webpack --config webpack.prod.js"
     },
