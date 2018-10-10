@@ -56,7 +56,7 @@ const Customer = (customerName ='' , customerEmail = '' , customerPassword) => {
           let res = await pool.request()
           .input('shipment_date' , sql.Date, shipment_date)
           .input('shiptment_cost' , sql.Decimal, shiptment_cost)
-          .input('customer_email' , sql.VarChar, customer_email)
+          .input('customer_email' , sql.Int, customer_email)
           .query('INSERT INTO shipments(shipment_date, shipment_cost, customer_id, shiptment_status)'+
         'VALUES(@shipment_date,@shiptment_cost, @customer_email, \'PENDING\' )')
         return res   
